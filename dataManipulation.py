@@ -59,3 +59,7 @@ assert 1 == 2
 #distribution chart
 import seaborn as sb
 sb.distplot(model_accuracies)
+
+
+df['A'].apply(str)
+df.applymap(str)
