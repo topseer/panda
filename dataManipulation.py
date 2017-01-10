@@ -66,3 +66,4 @@ df.applymap(str)
 
 #replace 
 googleState["Cost"] = googleState["Cost"].replace(",","",regex = True)
+googleState = googleState.replace(",","",regex = True)
