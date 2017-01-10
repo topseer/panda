@@ -60,6 +60,9 @@ assert 1 == 2
 import seaborn as sb
 sb.distplot(model_accuracies)
 
-
+#change data type
 df['A'].apply(str)
 df.applymap(str)
+
+#replace 
+googleState["Cost"] = googleState["Cost"].replace(",","",regex = True)
