@@ -77,3 +77,4 @@ df.beer_style.str.contains('IPA')
 # All reviews for the top three most reviewed beers
 print( "Top 3 \nBeer ID, Reviews \n", beer_ids[0:3], "\n" )
 df[df.beer_id.isin(beer_ids[0:3].index)]
+df[df.beer_id.isin(beer_ids[0:3].index)].beer_name.unique()
