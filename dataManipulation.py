@@ -67,3 +67,6 @@ df.applymap(str)
 #replace 
 googleState["Cost"] = googleState["Cost"].replace(",","",regex = True)
 googleState = googleState.replace(",","",regex = True)
+
+# Get boolean (True/False) mask for strings matching a pattern
+df.beer_style.str.contains('[A|a]merican')
