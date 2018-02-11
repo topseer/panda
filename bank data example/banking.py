@@ -11,7 +11,9 @@ from sklearn.feature_selection import RFE
 from sklearn.linear_model import LogisticRegression
 
 
-data = pd.read_csv("C:/YangXu/panda/bank data example/banking.csv")
+data = pd.read_csv("C:/panda/bank data example/banking.csv")
+
+msg = "test"
 
 data = data.dropna()
 
@@ -32,7 +34,10 @@ data_vars=data.columns.values.tolist()
 
 to_keep=[i for i in data_vars if i not in cat_vars]
 
+
 data_final=data[to_keep]
+
+
 data_final.columns.values
     
 data_final_vars=data_final.columns.values.tolist()
@@ -42,6 +47,8 @@ X=[i for i in data_final_vars if i not in y]
 
 
 logreg = LogisticRegression()
+
+
 
 rfe = RFE(logreg, 18)
 rfe = rfe.fit(data_final[X], data_final[y] )
@@ -56,29 +63,20 @@ for i,element in enumerate(rfe.support_):
     newX.append(X[i])
 
 
-import statsmodels.api as sm
 from sklearn.cross_validation import train_test_split
-
-logit_model=sm.Logit(y,X)
-result=logit_model.fit()
-print(result.summary())
-
 
 X_data=data_final[newX]
 y_data=data_final['y']
 
 X_train, X_test, y_train, y_test = train_test_split(X_data, y_data, test_size=0.3, random_state=0)
 from sklearn.linear_model import LogisticRegression
-from sklearn import metrics
 logreg = LogisticRegression()
+
+
 logreg.fit(X_train, y_train)
 
-
-y_pred = logreg.predict(X_test)
-
-
+logreg.score(X_train, y_train)
 logreg.score(X_test, y_test)
-
 
 
 

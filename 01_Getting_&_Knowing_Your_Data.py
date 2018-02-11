@@ -16,6 +16,7 @@ chipo = pd.read_csv(url, sep = '\t')
 
 
 chipo.info()
+
 list(chipo)
 
 chipo.columns
@@ -36,10 +37,6 @@ chipo["item_price_float"]=chipo["item_price"].apply (removeDollar)
 chipo["item_price_float"].head()
 
 
-string = "afdlklfd"
-
-string[1:]
-
 
 chipo.order_id.count()
 
@@ -51,6 +48,7 @@ chipo.head()
 
 
 avg = chipo.groupby('order_id').sum()["item_price_float"]
+
 avg = avg.rename ("price avg")
 
 avg = avg.rename(["item_price_float","avg"])
